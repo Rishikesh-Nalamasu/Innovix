@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap");
+
+:root {
+    --main-color: #edd4c6;
+    --text-color: #121212;
+    --container-color: #fdf5f0;
+    --bg-color: #fff;
+    --text-alter-color: #27282b;
+    --poppins-font: "Poppins", sans-serif;
+    --font-family-1: "Raleway", sans-serif;
+    --font-family-2: "Roboto Slab", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+    font-family: var(--font-family-2);
+}
+
+body {
+    padding-top: 60px; 
+    color: var(--text-color);
+    font-family: var(--font-family-2);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color); 
+    z-index: 100;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.nav-link {
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-family: var(--poppins-font);
+    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nav-link:hover {
+    color: var(--main-color);
+}
+
+.rankings-section {  
+    background-color: white;  
+    padding: 20px;  
+    border-radius: 10px;  
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  
+    max-width: 500px;  
+    margin: 80px auto 20px;  
+}  
+
+.rankings-section h2 {  
+    font-size: 1.5rem;  
+    font-weight: 500;  
+    margin-bottom: 10px;  
+}  
+
+.rankings-section label {  
+    font-size: 1rem;  
+    font-weight: 400;  
+    margin-bottom: 10px;  
+}  
+
+.rankings-section select {  
+    width: 100%;  
+    padding: 10px;  
+    border-radius: 5px;  
+    border: 1px solid #0e0f10;  
+    font-size: 1rem;  
+    font-family: var(--font-family-2);  
+}  
+
+.ranking-list {  
+    list-style: none;  
+    padding: 0;  
+    margin: 0;  
+}  
+
+.ranking-list li {  
+    display: flex;  
+    align-items: center;  
+    justify-content: space-between;  
+    padding: 10px;  
+    border-bottom: 1px solid #010609;  
+}  
+
+.ranking-list li:last-child {  
+    border-bottom: none;  
+}  
+
+.rank {  
+    font-size: 1.5rem;  
+    font-weight: 500;  
+    color: #333;  
+}
+
+.name {  
+    font-size: 1rem;  
+    font-weight: 400;  
+    color: #060505;  
+}  
+
+.points {  
+    font-size: 1rem;  
+    font-weight: 400;  
+    color: #f6240d;  
+}
+
+.hamburger {
+    display: none; 
+    font-size: 30px; 
+    cursor: pointer; 
+    padding: 10px; 
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        background-color: var(--bg-color);
+        width: 100%;
+        top: 60px; 
+        left: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--bg-color);
+        width: 100%;
+        top: 60px;
+        left: 0;
+        gap: 15px;
+        padding: 10px 0;
+    }
+}

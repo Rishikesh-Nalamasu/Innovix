@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap");
+
+:root {
+    --main-color: #edd4c6;
+    --text-color: #121212;
+    --container-color: #fdf5f0;
+    --bg-color: #fff;
+    --text-alter-color: #27282b;
+    --poppins-font: "Poppins", sans-serif;
+    --font-family-1: "Raleway", sans-serif;
+    --font-family-2: "Roboto Slab", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+    font-family: var(--font-family-2);
+}
+
+body {
+    padding-top: 60px;
+    color: var(--text-color);
+    font-family: var(--font-family-2);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    padding: 3rem 0 2rem;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    z-index: 100;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.nav-link {
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-family: var(--poppins-font);
+    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nav-link:hover {
+    color: var(--main-color);
+}
+
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-top: 80px;
+    margin-top: 15px;
+}
+
+.post-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    position: relative;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.post-content {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.like-btn, .comment-btn, .connect-btn {
+    background-color: #040404;
+    color: rgb(248, 245, 245);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.like-btn:hover, .comment-btn:hover, .connect-btn:hover {
+    background-color: rgb(11, 11, 11);
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+    .post-card {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .content {
+        padding: 5px;
+    }
+    .post-card {
+        max-width: 300px;
+    }
+    .post-content {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+
+
+@media only screen and (max-width: 420px){
+    .post-content {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--bg-color);
+        width: 100%;
+        top: 60px;
+        left: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--bg-color);
+        width: 100%;
+        top: 60px;
+        left: 0;
+        gap: 15px;
+        padding: 10px 0;
+
+    }
+}
+
+#deft{
+    font-size: 12px;
+}
