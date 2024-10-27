@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>GLOBAL KNOWLEDGE UNIVERSITY</title>
+   <link rel="stylesheet" href="/static/Home.css">
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+   <header>
+      <div class="navbar">
+         <a href="Home.html" class="logo">CAMPUS CONNECT</a>
+         <div class="hamburger" id="hamburger">
+             <i class='bx bx-menu'></i>
+         </div>
+         <ul class="nav-links">
+            <li><a href="{% url 'home' %}" class="nav-link">HOME</a></li>
+            <li><a href="{% url 'publish' %}" class="nav-link">PUBLISH</a></li>
+            <li><a href="{% url 'rankings' %}" class="nav-link">RANKINGS</a></li>
+            <li><a href="{% url 'profile' %}" class="nav-link">PROFILE</a></li>
+            <li><a href="{% url 'signin' %}" class="nav-link">logout</a></li>
+         </ul>
+      </div>
+   </header>
+
+   {% for post in posts %} 
+   <div class="content">  
+      
+      <div class="post-card">  
+         <div class="user-info">  
+            <img src="{{ post.user.profile.profile_img.url }}" alt="User Photo" class="user-photo">  
+            <div class="user-details">  
+               <strong>{{post.user.username}}</strong><br>  
+               <p id="deft"> {{ post.user.profile.branch }} </p>
+            </div>    
+         </div>  
+         <div class="post-content">  
+            <img src="{{post.image.url}}" alt="Voice Assistant Image" class="post-image">  
+            <p>{{post.caption}}</p>  
+            <div class="actions">  
+               <form action="{% url 'like-post' post.id %}" method="POST">
+                  {% csrf_token %}
+                  {% if post.id in liked_posts %}
+                      <button type="submit" class="like-btn">
+                          <i class='bx bx-like'></i> Liked
+                      </button>
+                  {% else %}
+                      <button type="submit" class="like-btn">
+                          <i class='bx bx-like'></i> Like
+                      </button>
+                  {% endif %}
+              </form>
+               <button class="comment-btn">  
+                  <i class='bx bx-comment'></i>  
+                  Comment  
+               </button>  
+               <button class="connect-btn">  
+                  <i class='bx bx-chat'></i> 
+                  Connect  
+               </button> 
+               {% if post.no_of_likes == 0 %}
+                    <p>No Likes</p>
+                {% else %}
+                    <p>Liked by {{ post.no_of_likes }} people{{ post.no_of_likes|pluralize }}</p>
+                {% endif %}
+            </div>  
+         </div> 
+         
+      </div>  
+      {% endfor %} 
+      
+   
+
+   <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger.addEventListener('click', () => {
+         navLinks.classList.toggle('active');
+      });
+
+      
+   </script>
+</body>  
+</html>

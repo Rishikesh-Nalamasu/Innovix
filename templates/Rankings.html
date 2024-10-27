@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankings</title>
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/Rankings.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+           <a href="Home.html" class="logo">CAMPUS CONNECT</a>
+           <div class="hamburger" id="hamburger">
+               <i class='bx bx-menu'></i>
+           </div>
+           <ul class="nav-links">
+              <li><a href="{% url 'home' %}" class="nav-link">HOME</a></li>
+              <li><a href="{% url 'publish' %}" class="nav-link">PUBLISH</a></li>
+              <li><a href="{% url 'rankings' %}" class="nav-link">RANKINGS</a></li>
+              <li><a href="{% url 'profile' %}" class="nav-link">PROFILE</a></li>
+              <li><a href="{% url 'signin' %}" class="nav-link">logout</a></li>
+           </ul>
+        </div>
+     </header>
+    <section class="rankings-section">  
+        <h2>Rankings</h2>  
+        <label for="department">Choose your department:</label>  
+        <select id="department">  
+        <option value="all">All</option>  
+        <option value="it">IT</option>  
+        <option value="cse">CSE</option>  
+        </select>  
+        <ul class="ranking-list">  
+        <li>  
+        <span class="rank">1</span>  
+        <span class="name">Rahul</span>  
+        <span class="points">686 pts</span>  
+        </li>  
+        <li>  
+        <span class="rank">2</span>  
+        <span class="name">Saanvi</span>  
+        <span class="points">627 pts</span>  
+        </li>  
+        <li>  
+        <span class="rank">3</span>  
+        <span class="name">Rohan</span>  
+        <span class="points">594 pts</span>  
+         </li>  
+         <li>  
+        <span class="rank">4</span>  
+        <span class="name">Vihaan</span>  
+        <span class="points">573 pts</span>  
+         </li>  
+         <li>  
+            <span class="rank">5</span>  
+        <span class="name">Meera</span>  
+        <span class="points">548 pts</span>  
+         </li>  
+         <li>  
+        <span class="rank">6</span>  
+        <span class="name">Diya</span>  
+        <span class="points">527 pts</span>  
+         </li>  
+         <li>  
+        <span class="rank">7</span>  
+        <span class="name">Sara</span>  
+        <span class="points">515 pts</span>  
+         </li>  
+         <li>  
+        <span class="rank">10</span>  
+        <span class="name">You</span>  
+        <span class="points">493 pts</span>  
+         </li>  
+        </ul>  
+      </section>
+      <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

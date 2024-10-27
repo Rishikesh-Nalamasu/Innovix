@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish</title>
+    <link href="/static/Publish.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css">
+</head>
+<body>
+   <header>
+      <div class="navbar">
+         <a href="Home.html" class="logo">CAMPUS CONNECT</a>
+         <div class="hamburger" id="hamburger">
+             <i class='bx bx-menu'></i>
+         </div>
+         <ul class="nav-links">
+            <li><a href="{% url 'home' %}" class="nav-link">HOME</a></li>
+            <li><a href="{% url 'publish' %}" class="nav-link">PUBLISH</a></li>
+            <li><a href="{% url 'rankings' %}" class="nav-link">RANKINGS</a></li>
+            <li><a href="{% url 'profile' %}" class="nav-link">PROFILE</a></li>
+            <li><a href="{% url 'signin' %}" class="nav-link">logout</a></li>
+         </ul>
+      </div>
+   </header>
+    <div class="publish-container">  
+        <div class="upload-section">  
+           <div class="upload-icon">+</div>  
+           <p>Upload any photos/videos</p>  
+        </div>  
+        <form action="{%url 'publish'%}" method="POST" enctype ="multipart/form-data">
+         {% csrf_token %}
+        <div class="input-section">  
+           <input type="file" name = 'file' id="file-upload" />
+        </div>  
+        <div class="input-section">  
+           <input type="text" name = 'addDiscription' placeholder="Add description">  
+        </div>  
+        <div class="input-section">  
+           <input type="text" name = 'addLink' placeholder="Add Links">  
+        </div>  
+        <button type="submit" class="submit-btn">Send Request</button>  
+     </div>
+      </form>
+     <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

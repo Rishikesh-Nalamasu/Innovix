@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/Signup.css">
+    <title>Signup</title>
+</head>
+<body>
+    <div class="login">
+        <div class="header">
+            <span>Join us today!</span>
+            <p>Sign up now to become a member.</p>
+        </div>
+
+        <div>
+            <style>
+                h5{
+                    color :red;
+                }
+            </style>
+            {% for message in messages %}
+            <h5>{{message}}</h5>
+            {% endfor %}
+
+
+        </div>
+        <form action="" method = "POST">
+            {% csrf_token %}
+            <input type="text" name ="username" placeholder="Enter Name" required />
+            <input type="email" name = "email" placeholder="Enter Email" required />
+            <label for="department">Choose your department:</label>  
+            <select id="department" name = "department" class="dropd">  
+                <option value="">Choose</option>  
+                <option value="IT">IT</option>  
+                <option value="CSE">CSE</option>
+                <option value="CSD">CSD</option>
+                <option value="AIML">AIML</option>
+                <option value="MECH">Mech</option>
+                <option value="CIVIL">Civil</option>
+                <option value="EEE">EEE</option> 
+                <option value="ECE">ECE</option> 
+            </select>  
+            <input type="password" name="password" placeholder="Create Password" required />
+            <input type="submit" value="Signup" />
+            <span>Already a member? <a href="{% url 'signin' %}">Signin Here</a></span>
+        </form>
+    </div>
+
+    {% comment %} <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const signupForm = document.querySelector("form");
+
+            signupForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                alert("Signup form submitted!");
+            });
+        });
+    </script> {% endcomment %}
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <link href="/static/Profile.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+           <a href="Home.html" class="logo">CAMPUS CONNECT</a>
+           <div class="hamburger" id="hamburger">
+               <i class='bx bx-menu'></i>
+           </div>
+           <ul class="nav-links">
+              <li><a href="{% url 'home' %}" class="nav-link">HOME</a></li>
+              <li><a href="{% url 'publish' %}" class="nav-link">PUBLISH</a></li>
+              <li><a href="{% url 'rankings' %}" class="nav-link">RANKINGS</a></li>
+              <li><a href="{% url 'profile' %}" class="nav-link">PROFILE</a></li>
+              <li><a href="{% url 'signin' %}" class="nav-link">logout</a></li>
+           </ul>
+        </div>
+     </header>
+    <div class="container">
+        <div class="profile">
+            <div class="user-infor">
+        
+                <img src='{{ profile.profile_img.url }}' alt="Profile Image" class="avatar">
+                
+                
+                <div class="points">
+                    <h4 class="suhnam">{{user.username}}</h4>
+                    <p class="suhdep">{{profile.branch}}</p>
+                    <h3>{{profile.points}} pts</h3>
+                    <div class="overrank"><p>Overall Ranking: {{profile.overall_ranking}}</p></div>
+                    <div class="deptrank"><p id="deptrank">Dept. Ranking: {{profile.dept_ranking}}</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="posts-section">
+            <h2 id="yourposts">Your Posts</h2>
+            <div class="posts">
+                <div class="post">
+                    <img src="/static/PROJCT.JPG" alt="Project Plan" class="post-img">
+                    <p>I created a detailed project plan that outlines the key phases, including requirements gathering, design, implementation, testing, and deployment, with specific timelines and milestones......</p>
+                </div>
+                <div class="post">
+                    <img src="/static/GRANTT.JPG" alt="Gantt Chart" class="post-img">
+                    <p>I developed a quarterly Gantt chart for the software development project, outlining tasks, timelines, and dependencies for each phase, including planning, design, coding, testing, and deployment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
